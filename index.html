@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaCompras | Sistema de Agendamento Profissional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>AgendaCompras</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Agendar</a></li>
+                        <li><a href="#">Meus Agendamentos</a></li>
+                        <li><a href="#">Produtos</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <button class="btn btn-outline"><i class="fas fa-user"></i> Entrar</button>
+                    <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Agende suas compras de forma prática e rápida</h1>
+            <p>Escolha os produtos, selecione a data e horário, e nós preparamos tudo para sua retirada</p>
+            <button class="btn btn-primary" id="hero-cta" style="padding: 12px 30px; font-size: 1.1rem;">
+                <i class="fas fa-plus-circle"></i> Novo Agendamento
+            </button>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="app-container">
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-calendar-alt"></i> Novo Agendamento</h2>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" class="form-control" placeholder="Digite seu nome completo" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="phone">Telefone *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="(00) 00000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" class="form-control" placeholder="seu@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="date">Data do Agendamento *</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Horário *</label>
+                            <select id="time" class="form-control" required>
+                                <option value="">Selecione um horário</option>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Selecione os Produtos *</label>
+                        <div class="product-grid">
+                            
+                            <div class="product-card" data-product="1">
+                                <div class="product-image">
+                                    <img src="img/ceramica.jpg" alt="Imagem Cerâmica" class="product-img-tag">
+                                </div>
+                                <div class="product-name">cerâmica</div>
+                                <div class="product-price">R$ 50</div>
+                                <div class="quantity-control">
+                                    <button type="button" class="quantity-btn minus" data-product="1">-</button>
+                                    <input type="number" class="quantity-input" id="qty-product1" value="1" min="1">
+                                    <button type="button" class="quantity-btn plus" data-product="1">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-product="2">
+                                <div class="product-image">
+                                    <img src="https://xg1e7cnw4i.execute-api.us-east-1.amazonaws.com/image/campeaodaconstrucao/image/catalog/product/fit-in/500x500/858832.png" alt="Imagem Telha" class="product-img-tag">
+                                </div>
+                                <div class="product-name">telha</div>
+                                <div class="product-price">R$ 5,90</div>
+                                <div class="quantity-control">
+                                    <button type="button" class="quantity-btn minus" data-product="2">-</button>
+                                    <input type="number" class="quantity-input" id="qty-product2" value="1" min="1">
+                                    <button type="button" class="quantity-btn plus" data-product="2">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-product="3">
+                                <div class="product-image">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M4Pm2vYNHCMfe7VrpnpCtUXEOeU3Dre2cQ&s" alt="Imagem Carrinho de Mão" class="product-img-tag">
+                                </div>
+                                <div class="product-name">carrinho de mão</div>
+                                <div class="product-price">R$ 120,99</div>
+                                <div class="quantity-control">
+                                    <button type="button" class="quantity-btn minus" data-product="3">-</button>
+                                    <input type="number" class="quantity-input" id="qty-product3" value="1" min="1">
+                                    <button type="button" class="quantity-btn plus" data-product="3">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-product="4">
+                                <div class="product-image">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnT-Q5aMZUNKTrYe_G1xZJus2QxUx0jR0mCw&s" alt="Imagem Cavadeira" class="product-img-tag">
+                                </div>
+                                <div class="product-name">Cavadeira</div>
+                                <div class="product-price">R$ 88</div>
+                                <div class="quantity-control">
+                                    <button type="button" class="quantity-btn minus" data-product="4">-</button>
+                                    <input type="number" class="quantity-input" id="qty-product4" value="1" min="1">
+                                    <button type="button" class="quantity-btn plus" data-product="4">+</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Observações</label>
+                        <textarea id="notes" class="form-control" rows="3" placeholder="Alguma observação sobre seu pedido..."></textarea>
+                    </div>
+                    
+                    <button id="schedule-btn" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;">
+                        <i class="fas fa-calendar-check"></i> Confirmar Agendamento
+                    </button>
+                </div>
+            </div>
+            
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-receipt"></i> Resumo da Entrega</h2>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Nome:</span>
+                        <span id="summary-name">-</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Telefone:</span>
+                        <span id="summary-phone">-</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Data:</span>
+                        <span id="summary-date">-</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Horário:</span>
+                        <span id="summary-time">-</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Produtos Selecionados:</span>
+                        <span id="summary-products">0</span>
+                    </div>
+                    
+                    <div class="summary-total">
+
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-history"></i> Agendamentos Recentes</h2>
+                    </div>
+                    
+                    <div class="appointments-list" id="appointments-container">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Por que usar nosso sistema de agendamento?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Economize Tempo</h3>
+                    <p>Evite filas e perda de tempo, seus produtos estarão prontos para retirada.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h3 class="feature-title">Produtos Garantidos</h3>
+                    <p>Reserve os produtos que precisa e garanta que estarão disponíveis.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="feature-title">Agendamento Fácil</h3>
+                    <p>Agende no horário que for mais conveniente para você.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="feature-title">Lembretes Automáticos</h3>
+                    <p>Receba lembretes por SMS ou e-mail antes do seu agendamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AgendaCompras</h3>
+                    <p>O sistema de agendamento de compras mais prático e eficiente do mercado.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Agendar Compra</a></li>
+                        <li><a href="#">Meus Agendamentos</a></li>
+                        <li><a href="#">Produtos em Destaque</a></li>
+                        <li><a href="#">Promoções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - Centro</li>
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@agendacompras.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 AgendaCompras. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Agendamento Confirmado!</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Seu agendamento foi realizado com sucesso. Você receberá um e-mail de confirmação em instantes.</p>
+                <div class="summary-item">
+                    <span>Código do Pedido:</span>
+                    <span id="modal-code">AGD-12345</span>
+                </div>
+                <div class="summary-item">
+                    <span>Data e Horário:</span>
+                    <span id="modal-date">-</span>
+                </div>
+                <div class="summary-item">
+                    <span>Total:</span>
+                    <span id="modal-total">R$ 0,00</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-print"></i> Imprimir Comprovante
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
