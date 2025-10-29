@@ -33,8 +33,7 @@ body {
 
 /* Header */
 header {
-    /* Corrigido para usar as variáveis primary e secondary */
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     padding: 1rem 0;
     box-shadow: var(--shadow);
